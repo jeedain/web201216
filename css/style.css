@@ -40,7 +40,8 @@ img{ border: none;}
 
 /* 레이아웃 */
 header#hd{ padding: 15px 0; position: relative;}
-.back{ height: 150px; background: black; position: absolute; width: 100%; top:100%; left: 0;}
+.back{ height: 0; background: rgba(0,0,0,.6); position: absolute; width: 100%; top:100%; left: 0;
+       transition: 0.5s;}
 
 /* 프로 */
 #hd a,#hd img{display: block;} /*a태그와 img태그(인라인태그들)의 실지렁이 여백사라지라고.. 짱중요!*/
@@ -48,25 +49,29 @@ header#hd{ padding: 15px 0; position: relative;}
         height:46px;
         z-index: 100;
       }
-#gnb>li>a{ font-weight: bold; font-size: 18px; line-height: 46px; padding-left: 2em;
-           padding-bottom: 15px;}
+#gnb>li>a{ font-weight: bold; font-size: 18px; line-height: 46px; padding: 0 1em 15px;}
 #gnb .d2{
-  background-color: black; top:calc(100% + 15px); left: 15px; padding: 0 15px; width: 100px;
+  top:calc(100% + 15px); left: 2px; padding: 0 15px; width: 100px;
   height: 0px; transition: 0.5s; overflow: hidden;
    }
-#gnb .d2
+
 #gnb .d2 a{ font-size: 0.9em; line-height: 1.5; color: white;}
-#gnb .d2::before{content: ""; display: block; height: 15px;}
+#gnb .d2:before{content: ""; display: block; height: 15px;}
 
 
-#gnb li:first-child(1) .d2{ left: 30px;}
+#gnb li:first-child(1) .d2{ left: 10px;}
+#gnb li:first-child(3) .d2{ left: 5px;}
 #gnb li:first-child(4) .d2{ width: 70px;}
 
 
-/*#gnb>li:hover .d2{ height: 120px;} /*마우스가 올라간 대메뉴li들 속에 소메뉴.d2의 높이가 120px이 되어라*/
-#gnb:hover .d2{ height: 120px;} /*전체 소메뉴 노출*/
 
-#gnb>li:hover>a{ color: #009688;} /*마우스가 올라간 대메뉴li들 속에 a링크들은  */
+/*#gnb>li:hover .d2{ height: 120px;} /*마우스가 올라간 대메뉴li들 속에 소메뉴.d2의 높이가 120px이 되어라*/
+
+#gnb:hover .d2, /*전체 소메뉴 노출*/
+#gnb:hover+.back{ height: 100px;}
+
+#gnb>li:hover>a,
+#gnb .d2 a:hover{ color: #009688;} /*마우스가 올라간 대메뉴li들 속에 a링크들은  */
 
 
 section#main{}
